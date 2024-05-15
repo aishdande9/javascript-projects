@@ -6,6 +6,7 @@ let protoArray4 = "Comma-spaces, might, require, typing, caution";
 strings = [protoArray1, protoArray2, protoArray3, protoArray4];
 
 
+console.log("---------------------Reverse commas---------------")
 //2) 
 function reverseCommas() {
 	//TODO: 1. create and instantiate your variables.
@@ -22,7 +23,7 @@ console.log(output);
 }
 reverseCommas()
 
-//3)
+console.log("---------------------semiDash---------------")
 function semiDash() {
 	let str1 = "up;to;code;fun"
 
@@ -33,6 +34,7 @@ function semiDash() {
     console.log(check);
 
     let output = check.join("-");
+	
     console.log(output);
 
 //TODO: write the code required for this step
@@ -41,8 +43,7 @@ function semiDash() {
 	return output;
 }
 semiDash()
-
-//4)
+console.log("---------------------ReverseSpaces---------------")
 function reverseSpaces() {
 	    let str = "to code up fun";
     let check = str.split(" ");
@@ -52,12 +53,14 @@ function reverseSpaces() {
     console.log(checks);
 
     let output = checks.join(" ");
+
     console.log(output);
   //TODO: write the code required for this step
 
 	return output;
 }
 reverseSpaces()
+console.log("---------------------commaspace---------------")
 
 //5)
 function commaSpace() {
@@ -66,6 +69,7 @@ function commaSpace() {
 	let output= check.join(",");
 	//TODO: write the code required for this step
   console.log(output);
+  
 	return output;
 }
 commaSpace()
