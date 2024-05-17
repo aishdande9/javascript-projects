@@ -2,11 +2,11 @@ const input = require('readline-sync');
 
 // Part A: #1 Populate these arrays
 
-let protein = [];
-let grains = [];
-let veggies = [];
-let beverages = [];
-let desserts = [];
+let protein = ["chicken", "pork", "tofu", "beef", "fish", "beans"];
+let grains = ["rice", "pasta", "corn", "potato", "quinoa", "crackers"];
+let veggies = [ "peas","green beans","kale","edamame","broccoli","asparagus",];
+let beverages = ["juice", "milk", "water", "soy milk", "soda", "tea"];
+let desserts = [ "apple","banana","more kale","ice cream","chocolate","kiwi",];
 
 
 function mealAssembly(protein, grains, veggies, beverages, desserts, numMeals) {
@@ -15,15 +15,30 @@ function mealAssembly(protein, grains, veggies, beverages, desserts, numMeals) {
   
   /// Part A #2: Write a ``for`` loop inside this function
   /// Code your solution for part A #2 below this comment (and above the return statement) ... ///
+  for(let i = 0;i < numMeals;i++){
+    let plate = [];//empty plate
+
+    for(let j =0;j<pantry.length;j++){
+      plate.push(pantry[j][i]);
+      
+    }
+    meals.push(plate);
 
 
+  }
+  console.log(meals);
   return meals;
 }
 
 
 function askForNumber() {
   numMeals = input.question("How many meals would you like to make?");
-  
+  numMeals = Number(numMeals);
+  while(!(numMeals > 0&&numMeals < 7)){
+    numMeals = input.question("invalid input!!!please enter the number from 0 to 6");
+    numMeals = Number(numMeals)
+  }
+  console.log(`${numMeals} meals will be ready shortly!!!`)
   /// CODE YOUR SOLUTION TO PART B here ///
 
   return numMeals;
@@ -33,12 +48,28 @@ function askForNumber() {
 function generatePassword(string1, string2) {
   let code = '';
 
+for(let i = 0;i<string1.length||i<string2.length;i++){
+  if (i < string1.length) 
+    code += string1.charAt(i); 
+
+// Then choose the ith character of the 
+// second string if it exists 
+if (i < string2.length) 
+  code += string2.charAt(i); 
+} 
+
+
   /// Code your Bonus Mission Solution here ///
 
   return code;
 }
 
 function runProgram() {
+  mealAssembly(protein, grains, veggies, beverages, desserts, askForNumber());
+  let string1 = "1234";
+let string2 = "5678";
+   console.log(`The new password is: ${generatePassword(string1, string2)}`);
+
   
   /// TEST PART A #2 HERE ///
   /// UNCOMMENT the two lines of code below that invoke the mealAssembly function (starting with 'let meals =') and print the result ///
@@ -62,9 +93,9 @@ function runProgram() {
   // let password1 = '';
   // let password2 = '';
   // console.log("Time to run the password generator so we can update the menu tomorrow.")
-  // console.log(`The new password is: ${generatePassword(password1, password2)}`);
-}
 
+ }
+runProgram();
 module.exports = {
   protein: protein,
   grains: grains,
