@@ -3,8 +3,19 @@
 /* Your function should:
 a) If passed a number, return the tripled value.
 b) If passed a string, return the string “ARRR!”
-c) Be sure to test your function before moving on the next part. 
-*/
+c) Be sure to test your function before moving on the next part.*/ 
+ let triple = function(str){
+    if(typeof str === 'string'){
+      return "ARRRR";
+    }
+    else if(typeof str === 'number'){
+        let num = str.toString();
+     let tripleNum = Math.pow(num,3);
+     return tripleNum;
+    }
+
+};
+console.log("The final result is : "+triple("aish"));
 
 /* Add to your code! Use your fuction and the map method to change an array  as follows:
 a) Triple any the numbers.
@@ -13,3 +24,7 @@ c) Print the new array to confirm your work.
 */
 
 let arr = ['Elocution', 21, 'Clean teeth', 100];
+let mappedArray = arr.map(triple);
+console.log(arr);
+console.log(mappedArray);
+
