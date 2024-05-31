@@ -1,9 +1,11 @@
 //The following concept check assumes that only positive integers are passed to the function.
 
 function factorial(integer){
-  if (/*enter base case test here*/){
-    return integer;
-  } else {
+  if (integer<0){
+    return NaN;
+  }else if(integer === 0) 
+    return 1;
+  else {
     return integer*(factorial(integer-1));
   }
 }
