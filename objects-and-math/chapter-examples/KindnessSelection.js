@@ -6,9 +6,14 @@ function randomSelection(arr){
  let happiness = ['Hope', 'Joy', 'Peace', 'Love', 'Kindness', 'Puppies', 'Kittens', 'Tortoise'];
  
  let words = ['Hello', 'World', 'Python', 'JavaScript', 'Rutabaga'];
+
+ let myArray = []
  
- for (i=0; i < 8; i++){
-   console.log(randomSelection(happiness));
+ for (i=0; i <1; i++){
+   let a1 = console.log(randomSelection(happiness));
+   let a2 = console.log(randomSelection(words));
+ myArray.push(a1+a2);
+ 
  }
  
  //Experiment with the code above. Try to:
