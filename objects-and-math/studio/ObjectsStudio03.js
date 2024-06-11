@@ -76,18 +76,24 @@ let massOfTheRocket = 75000;
 let amountOfFuelNeeded=0;
 function fuelRequired(crew)
  {
-  let mass = crewMass(crew,massOfTheRocket);
+  let mass = crewMass(crew);
+  let rocketMass = 75000;
+  let totalMass = mass+rocketMass;
+  let baseFuel = totalMass * 9.5;
+  let extraFuel = 0;
+  
   for(let i in crew){
     if(crew[i].species === "cat"||crew[i].species === "dog"){
       console.log("dog")
-      amountOfFuelNeeded += mass + massOfTheRocket+ 200;
+      extraFuel = extraFuel+200;
     }else{
       console.log("species")
-      amountOfFuelNeeded += mass +massOfTheRocket+ 100;
+      extraFuel = extraFuel+100;
+     
     }
   }
-  
-  console.log(`The mission has a launch mass of ${mass} kg and requires ${amountOfFuelNeeded}kg of fuel.`);
-  return Math.round(amountOfFuelNeeded);
+  let totalFuel = Math.ceil(baseFuel+extraFuel)
+  console.log(`The mission has a launch mass of ${mass} kg and requires ${totalFuel}kg of fuel.`);
+  return totalFuel;
 }
-fuelRequired(crew,massOfTheRocket);
+fuelRequired(crew);
