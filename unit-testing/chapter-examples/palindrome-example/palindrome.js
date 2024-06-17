@@ -7,3 +7,4 @@ function reverse(str) {
  }
  
  module.exports = isPalindrome;
+ 
