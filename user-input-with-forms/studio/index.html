@@ -1,47 +1,58 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="utf-8"/>
-  <script>
-    window.addEventListener("load", () => {
-      document.getElementById("searchForm").addEventListener("submit", function(event) {
-        event.preventDefault(); // Prevent default form submission
-        let selectedRadioButton = document.querySelector("input[name=engine]:checked");
-        let actionURL;
-
-        if (selectedRadioButton.value === "google") {
-          actionURL = "https://www.google.com/search";
-        } else if (selectedRadioButton.value === "duckduckgo") {
-          actionURL = "https://duckduckgo.com/";
-        } else if (selectedRadioButton.value === "bing") {
-          actionURL = "https://www.bing.com/search";
-        } else if (selectedRadioButton.value === "ask") {
-          actionURL = "https://www.ask.com/web";
-        }
-
-        this.action = actionURL;
-        this.submit(); // Submit the form programmatically
-      });
-    });
-  </script>
-</head>
-
-<body>
-  <form id="searchForm" method="get">
-    <input type="text" name="q" />
-    <label>
-      <input type="radio" name="engine" value="google"/> Google
-    </label>
-    <label>
-      <input type="radio" name="engine" value="duckduckgo"/> DuckDuckGo
-    </label>
-    <label>
-      <input type="radio" name="engine" value="bing"/> Bing
-    </label>
-    <label>
-      <input type="radio" name="engine" value="ask"/> Ask
-    </label>
-    <button type="submit">Search!</button>
-  </form>
-</body>
+   <head>
+      <meta charset="utf-8"/>
+      <script>
+         window.addEventListener("load", () => {
+           const form = document.getElementById("searchForm");
+             
+         
+         const actions = {"google" : "https://www.google.com/search",
+           "duckduckgo" : "https://duckduckgo.com/",
+           "bing" : "https://www.bing.com/search",
+           "ask" : "https://www.ask.com/web"
+         
+         }
+         form.addEventListener("submit",()=>{
+           const selectedRadioButton = document.querySelector("input[name=engine]:checked");
+           const action = actions[selectedRadioButton.value];
+           form.setAttribute("action",action);
+         })
+         
+           //   let actionURL;
+         
+           //   if (selectedRadioButton.value === "google") {
+           //     actionURL = "https://www.google.com/search";
+           //   } else if (selectedRadioButton.value === "duckduckgo") {
+           //     actionURL = "https://duckduckgo.com/";
+           //   } else if (selectedRadioButton.value === "bing") {
+           //     actionURL = "https://www.bing.com/search";
+           //   } else if (selectedRadioButton.value === "ask") {
+           //     actionURL = "https://www.ask.com/web";
+           //   }
+         
+           //   this.action = actionURL;
+           //   this.submit(); // Submit the form programmatically
+           // });
+         });
+      </script>
+   </head>
+   <body>
+      <form id="searchForm" method="get">
+         <input type="text" name="q" />
+         <label>
+         <input type="radio" name="engine" value="google"/> Google
+         </label>
+         <label>
+         <input type="radio" name="engine" value="duckduckgo"/> DuckDuckGo
+         </label>
+         <label>
+         <input type="radio" name="engine" value="bing"/> Bing
+         </label>
+         <label>
+         <input type="radio" name="engine" value="ask"/> Ask
+         </label>
+         <button type="submit">Search!</button>
+      </form>
+   </body>
 </html>
